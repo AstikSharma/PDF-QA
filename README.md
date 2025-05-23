@@ -17,6 +17,7 @@ To set up and run the application locally, follow these steps:
 1. Run the following command in your terminal:
    ```bash
     git clone https://github.com/AstikSharma/PDF-QA.git
+   cd PDF-QA
    ```
 
 ### Backend Setup
