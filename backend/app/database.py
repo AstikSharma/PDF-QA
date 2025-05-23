@@ -1,10 +1,15 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy.exc import OperationalError
+from sqlalchemy_utils import database_exists, create_database
 from app.models.document import Base, Document
 from app.core.config import settings
 
 
 engine = create_engine(settings.DATABASE_URL)
+
+if not database_exists(engine.url):
+    create_database(engine.url)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
