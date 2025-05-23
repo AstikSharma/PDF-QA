@@ -45,7 +45,7 @@ const HomePage = () => {
           {fileName && (
             <>
               <div
-                className="flex items-center justify-center overflow-hidden border-2 border-green-500 rounded-[5px] py-1.5 px-1 mr-2"
+                className="flex items-center justify-center overflow-hidden border-1 border-green-500 rounded-[5px] py-1.5 px-1 mr-2"
               >
                 <img
                   src={fileIcon}
