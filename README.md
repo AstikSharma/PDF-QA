@@ -1,4 +1,6 @@
 # PDF QA Application
+## Note
+   Open to discussion, feedback or improvements before the deadline.
 
 ## Project Overview
 
