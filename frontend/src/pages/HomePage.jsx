@@ -45,12 +45,12 @@ const HomePage = () => {
           {fileName && (
             <>
               <div
-                className="flex items-center justify-center overflow-hidden border-2 border-green-500 rounded-[5px] py-2 px-1.25 mr-2"
+                className="flex items-center justify-center overflow-hidden border-2 border-green-500 rounded-[5px] py-1.5 px-1 mr-2"
               >
                 <img
                   src={fileIcon}
                   alt="File icon"
-                  className="h-4 w-5"
+                  className="h-4 w-4"
                 />
               </div>
               <span className="mr-4 sm:mr-8 text-green-600 text-sm truncate font-semibold">
