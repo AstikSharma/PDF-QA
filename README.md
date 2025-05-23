@@ -13,6 +13,12 @@ To set up and run the application locally, follow these steps:
 *   Python 3.7+
 *   Node.js and npm
 
+### Clone the repository:
+1. Run the following command in your terminal:
+   ```bash
+    git clone https://github.com/AstikSharma/PDF-QA.git
+   ```
+
 ### Backend Setup
 
 1.  Navigate to the `backend` directory:
