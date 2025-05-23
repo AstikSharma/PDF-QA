@@ -41,8 +41,13 @@ To set up and run the application locally, follow these steps:
     ```bash
     pip install -r requirements.txt
     ```
-5.  Create a `.env` file in the `backend` directory and add any necessary environment variables (e.g., database connection string, API keys). Refer to the application code for required variables.
-6.  Run the backend application:
+5.  Create a `.env` file in the `backend` directory and add any necessary environment variables:
+    ```bash
+    DATABASE_URL=postgresql://username:password@localhost:5432/pdfqa
+    PDF_STORAGE_PATH=pdf_storage
+    OPENAI_API_KEY=your_OpenAI_API_Key
+    ```
+7.  Run the backend application:
     ```bash
     uvicorn app.main:app --reload
     ```
