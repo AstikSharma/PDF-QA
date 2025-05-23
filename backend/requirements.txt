@@ -9,3 +9,4 @@ sqlalchemy
 pymupdf
 psycopg2-binary
 langchain_community
+sqlalchemy_utils
