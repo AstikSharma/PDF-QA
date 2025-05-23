@@ -32,6 +32,11 @@ To set up and run the application locally, follow these steps:
         ```bash
         source venv/bin/activate
         ```
+    *   If none of the above work then (bash in windows):
+        ```bash
+        source venv/Scripts/activate
+        ```
+        
 4.  Install the required Python packages:
     ```bash
     pip install -r requirements.txt
