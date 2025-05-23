@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
+import { InputBase, IconButton, Paper } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send'
 import { API_BASE_URL } from "../config";
 
-const QuestionForm = ({ documentId, onAnswer, onError }) => {
+const QuestionForm = ({ documentId, onAnswer, onError, onQuestionSubmit }) => {
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -16,6 +18,7 @@ const QuestionForm = ({ documentId, onAnswer, onError }) => {
     }
     if (!question.trim()) return;
 
+    onQuestionSubmit && onQuestionSubmit(question); // Pass the question to HomePage
     setLoading(true);
     onError && onError(null);
 
@@ -42,28 +45,47 @@ const QuestionForm = ({ documentId, onAnswer, onError }) => {
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit} className="max-w-xl mx-auto mt-6 space-y-4">
-      <TextField
-        label="Ask your question"
-        variant="outlined"
-        fullWidth
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-        disabled={loading}
-      />
-
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        disabled={loading || !question.trim()}
-        fullWidth
-        startIcon={loading && <CircularProgress size={20} />}
+  return ( 
+      <Paper
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{
+          p: '2px 4px',
+          display: 'flex',
+          alignItems: 'center',
+          width: '100%',
+          borderRadius: '10px',
+          boxShadow: '0 0 4px rgba(0, 0, 0, 0.1)',
+        }}
       >
-        {loading ? "Asking..." : "Ask"}
-      </Button>
-    </form>
+        <InputBase
+          sx={{
+            ml: 1,
+            flex: 1,
+            color: 'rgba(0, 0, 0, 0.87)', // Darker text color
+            '& .MuiInputBase-input': {
+              color: 'rgba(0, 0, 0, 0.87)', // Ensures the text is dark
+            },
+            '& .MuiInputBase-input::placeholder': {
+              color: 'rgba(0, 0, 0, 0.6)', // Darker placeholder
+              opacity: 1, // Ensure full opacity
+            }
+          }}
+          placeholder="Send a message..."
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+          disabled={loading}
+          inputProps={{ 'aria-label': 'send a message' }}
+        />
+        <IconButton
+          type="submit"
+          sx={{ p: '10px' }}
+          color="primary"
+          disabled={loading || !question.trim()}
+        >
+          {loading ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
+        </IconButton>
+      </Paper>
   );
 };
 
